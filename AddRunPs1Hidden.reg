@@ -1,0 +1,7 @@
+﻿Windows Registry Editor Version 5.00
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.ps1\shell\RunPs1Hidden]
+@="用 PowerShell 執行(背景)"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.ps1\shell\RunPs1Hidden\command]
+@="wscript.exe \"D:\\Code\\Github_leofcshen\\Common-Script\\RunPs1Hidden.vbs\" \"%1\""
