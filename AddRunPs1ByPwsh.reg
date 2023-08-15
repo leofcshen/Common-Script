@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+;.ps1 右鍵選單新增以 PowerShell 7 執行
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.ps1\shell\Run with PowerShell 7]
+@="Run with PowerShell 7"
+
+[HKEY_CLASSES_ROOT\SystemFileAssociations\.ps1\shell\Run with PowerShell 7\command]
+@="pwsh -ExecutionPolicy Bypass -File \"%1\""
