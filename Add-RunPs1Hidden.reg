@@ -1,4 +1,5 @@
 ﻿Windows Registry Editor Version 5.00
+;.ps1 右鍵選單新增 "用 PowerShell 執行(背景)"
 
 [HKEY_CLASSES_ROOT\SystemFileAssociations\.ps1\shell\RunPs1Hidden]
 @="用 PowerShell 執行(背景)"
