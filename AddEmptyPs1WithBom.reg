@@ -1,0 +1,5 @@
+Windows Registry Editor Version 5.00
+;右鍵選單新增項目增加 .ps1 檔 (以現有的 UTF-8-BOM 模版)
+
+[HKEY_CLASSES_ROOT\.ps1\ShellNew]
+"FileName"="D:\\Code\\Github_leofcshen\\Common-Script\\EmptyPs1WithBom.ps1"
