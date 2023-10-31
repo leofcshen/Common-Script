@@ -20,7 +20,7 @@ Try {
 	$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"
 	dotnet nuget push $Path -k $Config.Baget.Key -s $Config.Baget.Url
 } Catch {
-	if($RunCatch) {		
+	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor Red
 		Write-Host $_.Exception.Message -ForegroundColor Red
 		Write-Host $_.ScriptStackTrace
