@@ -1,11 +1,9 @@
-﻿# Nuget-Server 刪除套件 版本
+﻿# 方法說明
 
 # 方法變數
-$Version = "2.0.0"
-$PackageName = "Utility"
 
 # 公共變數
-$PauseEnd = 1
+$PauseEnd = 0
 $RunCatch = 0
 
 Try {
@@ -18,7 +16,7 @@ Try {
 	. $Config.BaseScript
 	
 	#region -- 主功能 --	
-	dotnet nuget delete $PackageName $Version -s $Config.Baget.Url -k $Config.Baget.Key --non-interactive
+	
 	#endregion
 } Catch {
 	if($RunCatch) {

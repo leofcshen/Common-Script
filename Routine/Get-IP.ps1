@@ -1,11 +1,4 @@
-﻿# Nuget-Server 刪除套件 版本
-
-# 方法變數
-$Version = "2.0.0"
-$PackageName = "Utility"
-
-# 公共變數
-$PauseEnd = 1
+﻿# 查本機 IP 複製到剪貼簿
 $RunCatch = 0
 
 Try {
@@ -17,8 +10,13 @@ Try {
 	# 引用腳本
 	. $Config.BaseScript
 	
-	#region -- 主功能 --	
-	dotnet nuget delete $PackageName $Version -s $Config.Baget.Url -k $Config.Baget.Key --non-interactive
+	#region -- 主功能 --
+	$NetName = "乙太網路"
+
+	$Value = (Get-NetIPAddress -AddressFamily IPv4).Where({$_.InterfaceAlias -eq $NetName}).IPAddress 
+	$Value | Set-Clipboard
+
+	Send-Notification -Title '已複製字串' -Text $Value
 	#endregion
 } Catch {
 	if($RunCatch) {
@@ -30,5 +28,3 @@ Try {
 		Pause
 	}	
 }
-
-if($PauseEnd) {	Pause }
