@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+ 
+[HKEY_CLASSES_ROOT\Excel.Sheet.12\shell\Open_in_New_Excel_Instance]
+@="Open in new Window(&W)"
+ 
+[HKEY_CLASSES_ROOT\Excel.Sheet.12\shell\Open_in_New_Excel_Instance\command]
+@="\"C:\\Program Files (x86)\\Microsoft Office\\Office12\\EXCEL.EXE\" \"%1\""
