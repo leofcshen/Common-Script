@@ -13,7 +13,7 @@ Try {
 	. $Env:PS_Common
 	
 	# Config 如沒用到可省略
-	$Config = GetConfig $Env:PS_ConfigPath
+	$Config = Get-Json $Env:PS_ConfigPath
 	
 	#主功能
 	

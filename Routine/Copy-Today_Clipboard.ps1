@@ -3,12 +3,18 @@
 # 公共變數
 $PauseEnd = 0
 $RunCatch = 0
+$LibraryPath = ""
+$ConfigPath = ""
+$GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
+$GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
 Try {
-	# 引用腳本
-	if(!$Env:PS_Common) { throw "Env:PS_Common 找不到" }
-	if(!(Test-Path -Path $Env:PS_Common -PathType Leaf)) { throw "$Env:PS_Common 路徑不存在" }
-	. $Env:PS_Common
+	# 引用 Library
+	. $GetLibraryPathFunction
+	. (Get-LibraryPath $LibraryPath)
+	# 取得 Config
+	. $GetConfigPathFunction
+	$Config = Get-Config $ConfigPath
 	
 	# 主功能 
 	$Value = "$(Get-Date -Format "yyyyMMdd")_$(Get-Clipboard)"
@@ -16,13 +22,16 @@ Try {
 	Send-Notification -Title '已複製字串' -Text $Value
 } Catch {
 	if($RunCatch) {
-		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor Red
-		Write-Host $_.Exception.Message -ForegroundColor Red
+		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
+		Write-Host $_.Exception.Message -ForegroundColor "Red"
 		Write-Host $_.ScriptStackTrace
-		Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor Red
+		Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor "Red"
 		
 		Pause
 	}	
 }
 
+Write-Host
+Write-Host "執行完畢" -ForegroundColor "Green"
+Write-Host
 if($PauseEnd) {	Pause }
