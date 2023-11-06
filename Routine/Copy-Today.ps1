@@ -1,13 +1,13 @@
 ﻿# 複製日期到剪貼簿
 
-# 方法變數
-
 # 公共變數
 $PauseEnd = 0
 $LibraryPath = ""
 $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+
+# 方法變數
 
 function Run {
 	$Value = $(Get-Date -Format "yyyyMMdd")

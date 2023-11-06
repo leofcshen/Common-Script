@@ -1,13 +1,13 @@
 ﻿# 檢查所有 Repository git status
 
-# 方法變數
-
 # 公共變數
 $PauseEnd = 1
 $LibraryPath = ""
 $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+
+# 方法變數
 
 function Run {
 	$RepoList = Get-ChildItem $Config.GitRepoBase | % { $_.FullName}

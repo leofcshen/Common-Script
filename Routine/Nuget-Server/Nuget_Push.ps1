@@ -1,14 +1,14 @@
 ﻿# Nuget-Server 發行套件
 
-# 方法變數
-$Version = "2.0.0"
-
 # 公共變數
 $PauseEnd = 1
 $LibraryPath = ""
 $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+
+# 方法變數
+$Version = "2.0.0"
 
 function Run {
 	$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"

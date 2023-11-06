@@ -1,15 +1,15 @@
 ﻿# Nuget-Server 刪除套件 版本
 
-# 方法變數
-$Version = "2.0.0"
-$PackageName = "Utility"
-
 # 公共變數
 $PauseEnd = 1
 $LibraryPath = ""
 $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+
+# 方法變數
+$Version = "2.0.0"
+$PackageName = "Utility"
 
 function Run {
 	dotnet nuget delete $PackageName $Version -s $Config.Baget.Url -k $Config.Baget.Key --non-interactive

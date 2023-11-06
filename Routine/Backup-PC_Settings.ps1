@@ -1,5 +1,12 @@
 ﻿# 備份電腦設定
 
+# 公共變數
+$PauseEnd = 1
+$LibraryPath = ""
+$ConfigPath = ""
+$GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
+$GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+
 # 方法變數
 # region -- 資料夾清單 --
 # Outlook 簽名檔
@@ -13,13 +20,6 @@ $Stratup = $Env:APPDATA + "\Microsoft\Windows\Start Menu\Programs\Startup"
 $BackupTarget = $OutlookSignatures, $Vpn, $Stratup
 $BackupBase = "D:\LeoShen\PC_Backup\PowerShell_Backup"
 $ScriptPath = "D:\Code\Github_leofcshen\PowerShell_Sample\Script\Backup-Folder.ps1"
-
-# 公共變數
-$PauseEnd = 1
-$LibraryPath = ""
-$ConfigPath = ""
-$GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
-$GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
 function Run {
 	foreach ($Target in $BackupTarget) {
