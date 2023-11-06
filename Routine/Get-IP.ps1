@@ -5,7 +5,6 @@ $NetName = "乙太網路"
 
 # 公共變數
 $PauseEnd = 0
-$RunCatch = 0
 $LibraryPath = ""
 $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
@@ -28,14 +27,10 @@ Try {
 	# 主功能
 	Run
 } Catch {
-	if($RunCatch) {
-		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
-		Write-Host $_.Exception.Message -ForegroundColor "Red"
-		Write-Host $_.ScriptStackTrace
-		Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor "Red"
-		
-		Pause
-	}	
+	Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
+	Write-Host $_.Exception.Message -ForegroundColor "Red"
+	Write-Host $_.ScriptStackTrace
+	Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor "Red"
 }
 
 Write-Host
