@@ -8,27 +8,18 @@ $ConfigPath = $Env:PS_Config
 
 # 方法變數
 $Version = "2.0.0"
+$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"
 
 function Run {
-	$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"
 	dotnet nuget push $Path -k $Config.Baget.Key -s $Config.Baget.Url
 }
 
 Try {
-	# 引用 Library
 	. $LibraryPath
-	# 取得 Config
 	$Config = Get-Json $ConfigPath
-	# 主功能
 	Run
 } Catch {
-	Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
-	Write-Host $_.Exception.Message -ForegroundColor "Red"
-	Write-Host $_.ScriptStackTrace
-	Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor "Red"
+	Show-Error
 }
 
-Write-Host
-Write-Host "執行完畢" -ForegroundColor "Green"
-Write-Host
-if($PauseEnd) {	Pause }
+Show-End

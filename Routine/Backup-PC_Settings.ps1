@@ -15,7 +15,6 @@ $Vpn = $Env:APPDATA + "\Microsoft\Network\Connections\Pbk"
 # 啟動資料夾
 $Stratup = $Env:APPDATA + "\Microsoft\Windows\Start Menu\Programs\Startup"
 #endregion
-
 $BackupTarget = $OutlookSignatures, $Vpn, $Stratup
 $BackupBase = "D:\LeoShen\PC_Backup\PowerShell_Backup"
 $ScriptPath = "D:\Code\Github_leofcshen\PowerShell_Sample\Script\Backup-Folder.ps1"
@@ -31,20 +30,11 @@ function Run {
 }
 
 Try {
-	# 引用 Library
 	. $LibraryPath
-	# 取得 Config
 	$Config = Get-Json $ConfigPath
-	# 主功能
 	Run
 } Catch {
-	Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
-	Write-Host $_.Exception.Message -ForegroundColor "Red"
-	Write-Host $_.ScriptStackTrace
-	Write-Host "!!!!!!!!!!!!!!!!!!!!!" -BackgroundColor "Red"
+	Show-Error
 }
 
-Write-Host
-Write-Host "執行完畢" -ForegroundColor "Green"
-Write-Host
-if($PauseEnd) {	Pause }
+Show-End
