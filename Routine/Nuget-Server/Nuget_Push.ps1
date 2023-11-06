@@ -11,6 +11,10 @@ $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
+function Run {
+	$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"
+	dotnet nuget push $Path -k $Config.Baget.Key -s $Config.Baget.Url
+}
 
 Try {
 	# 引用 Library
@@ -19,10 +23,8 @@ Try {
 	# 取得 Config
 	. $GetConfigPathFunction
 	$Config = Get-Config $ConfigPath
-	
 	# 主功能
-	$Path = "$($Config.Baget.PackagePath)\$($Config.Baget.PackageName).${Version}.nupkg"
-	dotnet nuget push $Path -k $Config.Baget.Key -s $Config.Baget.Url
+	Run
 } Catch {
 	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"

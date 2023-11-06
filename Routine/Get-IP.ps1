@@ -11,6 +11,12 @@ $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
+function Run {
+	$Value = (Get-NetIPAddress -AddressFamily IPv4).Where({$_.InterfaceAlias -eq $NetName}).IPAddress 
+	$Value | Set-Clipboard
+	Write-Host $Value
+	Send-Notification -Title '已複製字串' -Text $Value
+}
 
 Try {
 	# 引用 Library
@@ -19,12 +25,8 @@ Try {
 	# 取得 Config
 	. $GetConfigPathFunction
 	$Config = Get-Config $ConfigPath
-	
 	# 主功能
-	$Value = (Get-NetIPAddress -AddressFamily IPv4).Where({$_.InterfaceAlias -eq $NetName}).IPAddress 
-	$Value | Set-Clipboard
-	Write-Host $Value
-	Send-Notification -Title '已複製字串' -Text $Value
+	Run
 } Catch {
 	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"

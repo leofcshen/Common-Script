@@ -10,15 +10,7 @@ $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
-Try {
-	# 引用 Library
-	. $GetLibraryPathFunction
-	. (Get-LibraryPath $LibraryPath)
-	# 取得 Config
-	. $GetConfigPathFunction
-	$Config = Get-Config $ConfigPath
-	
-	#主功能	
+function Run {
 	$RepoList = Get-ChildItem $Config.GitRepoBase | % { $_.FullName}
 	
 	foreach ($Target in $RepoList) {
@@ -29,6 +21,17 @@ Try {
 	}
 	
 	Write-Host "程式庫數量：$($RepoList.Count)" -ForegroundColor "Green"
+}
+
+Try {
+	# 引用 Library
+	. $GetLibraryPathFunction
+	. (Get-LibraryPath $LibraryPath)
+	# 取得 Config
+	. $GetConfigPathFunction
+	$Config = Get-Config $ConfigPath
+	# 主功能
+	Run
 } Catch {
 	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"

@@ -22,6 +22,15 @@ $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
+function Run {
+	foreach ($Target in $BackupTarget) {
+		if(Test-Path -Path $Target -PathType Container) {
+			. $ScriptPath $Target $BackupBase
+		} else {
+			Write-Error "路徑不存在 $Target"
+		}
+	}
+}
 
 Try {
 	# 引用 Library
@@ -30,15 +39,8 @@ Try {
 	# 取得 Config
 	. $GetConfigPathFunction
 	$Config = Get-Config $ConfigPath
-	
-	#主功能
-	foreach ($Target in $BackupTarget) {
-		if(Test-Path -Path $Target -PathType Container) {
-			. $ScriptPath $Target $BackupBase
-		} else {
-			Write-Error "路徑不存在 $Target"
-		}
-	}
+	# 主功能
+	Run
 } Catch {
 	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"

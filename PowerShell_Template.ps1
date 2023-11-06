@@ -10,6 +10,10 @@ $ConfigPath = ""
 $GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
 $GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
 
+function Run {
+	
+}
+
 Try {
 	# 引用 Library
 	. $GetLibraryPathFunction
@@ -17,12 +21,8 @@ Try {
 	# 取得 Config
 	. $GetConfigPathFunction
 	$Config = Get-Config $ConfigPath
-	
-	# Config 如沒用到可省略
-	$Config = Get-Json $Env:PS_ConfigPath
-	
-	#主功能
-	
+	# 主功能
+	Run
 } Catch {
 	if($RunCatch) {
 		Write-Host "!!!!!! 發生錯誤 !!!!!" -BackgroundColor "Red"
