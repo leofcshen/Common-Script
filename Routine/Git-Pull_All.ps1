@@ -1,4 +1,5 @@
-﻿# 拉取所有 Repository git pull
+﻿# 方法說明
+# 拉取所有 Repository git pull
 
 # 公共變數
 $PauseEnd = 1

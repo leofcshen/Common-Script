@@ -1,4 +1,5 @@
-﻿# Nuget-Server 發行套件
+﻿# 方法說明
+# Nuget-Server 發行套件
 
 # 公共變數
 $PauseEnd = 1

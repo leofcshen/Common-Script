@@ -1,4 +1,5 @@
-﻿# 檢查所有 Repository git status
+﻿# 方法說明
+# 檢查所有 Repository git status
 
 # 公共變數
 $PauseEnd = 1

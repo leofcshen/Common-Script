@@ -1,4 +1,5 @@
-﻿# Nuget-Server 刪除套件 版本
+﻿# 方法說明
+# Nuget-Server 刪除套件 版本
 
 # 公共變數
 $PauseEnd = 1
