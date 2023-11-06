@@ -3,10 +3,8 @@
 
 # 公共變數
 $PauseEnd = 1
-$LibraryPath = ""
-$ConfigPath = ""
-$GetLibraryPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-LibraryPath.ps1"
-$GetConfigPathFunction = "D:\Code\Github_leofcshen\PowerShell_Sample\Function\Common\Get-Config.ps1"
+$LibraryPath = $Env:PS_Library
+$ConfigPath = $Env:PS_Config
 
 # 方法變數
 $Version = "2.0.0"
@@ -18,11 +16,9 @@ function Run {
 
 Try {
 	# 引用 Library
-	. $GetLibraryPathFunction
-	. (Get-LibraryPath $LibraryPath)
+	. $LibraryPath
 	# 取得 Config
-	. $GetConfigPathFunction
-	$Config = Get-Config $ConfigPath
+	$Config = Get-Json $ConfigPath
 	# 主功能
 	Run
 } Catch {
