@@ -10,13 +10,12 @@ $ConfigPath = $Env:PS_Config
 # region -- 要備份的資料夾清單 --
 # Outlook 簽名檔資料夾
 $OutlookSignatures = $Env:APPDATA + "\Microsoft\Signatures"
-
 # VPN 設定資料夾
 $Vpn = $Env:APPDATA + "\Microsoft\Network\Connections\Pbk"
-
 # 啟動資料夾
 $Stratup = $Env:APPDATA + "\Microsoft\Windows\Start Menu\Programs\Startup"
 #endregion
+ 
 $BackupList = $OutlookSignatures, $Vpn, $Stratup
 $BackupBase = "D:\LeoShen\PC_Backup\PowerShell_Backup"
 $ScriptPath = "D:\Code\Github_leofcshen\PowerShell_Sample\Script\Backup-Folder.ps1"
