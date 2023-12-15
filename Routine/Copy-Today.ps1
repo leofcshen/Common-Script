@@ -2,7 +2,7 @@
 # 複製日期到剪貼簿
 
 # 公共變數
-$PauseEnd = 0
+$PauseEnd = 1
 $LibraryPath = $Env:PS_Library
 $ConfigPath = $Env:PS_Config
 
