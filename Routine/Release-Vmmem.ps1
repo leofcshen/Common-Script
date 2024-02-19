@@ -1,0 +1,3 @@
+﻿wsl --shutdown
+
+Pause
