@@ -11,7 +11,7 @@ rem 立即與校時來源同步時間
 w32tm /resync
 
 :: 設定Log路徑
-set folder=D:\Log\對時\
+set folder=D:\Log\對時
 
 :: 設定LOG檔名日期
 for /f "tokens=1-3 delims=/ " %%a in ("%date%") do (
@@ -22,8 +22,10 @@ for /f "tokens=1-3 delims=/ " %%a in ("%date%") do (
 
 set fileName=%year%-%month%-%day%
 
-:: 寫入 Log
-echo %date%_%time% >> "%folder%%fileName%.LOG"
-
 :: 使用 forfiles 刪除超過 2 天的檔案
-forfiles /p "%folder%" /s /m *.* /d -2 /c "cmd /c del @file"
+forfiles /p "%folder%" /s /m *.* /d -2 /c "cmd /c del @file":: 2>nul
+
+:: 寫入 Log
+echo %date%_%time% >> "%folder%\%fileName%.log"
+
+::forfiles /p "D:\LOG\WEB\A" /s /m *.log /d -60 /c  "cmd /c echo  del @path /q  ... && del @path /q " 
