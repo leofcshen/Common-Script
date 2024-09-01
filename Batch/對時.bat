@@ -10,10 +10,10 @@ net start w32time
 rem 立即與校時來源同步時間
 w32tm /resync
 
-:: 設定目標資料夾路徑
+:: 設定Log路徑
 set folder=D:\Log\對時\
- 
-:: 設定LOG檔案路徑，依日期生成LOG檔案
+
+:: 設定LOG檔名日期
 for /f "tokens=1-3 delims=/ " %%a in ("%date%") do (
   set year=%%a
   set month=%%b
@@ -22,6 +22,7 @@ for /f "tokens=1-3 delims=/ " %%a in ("%date%") do (
 
 set fileName=%year%-%month%-%day%
 
+:: 寫入 Log
 echo %date%_%time% >> "%folder%%fileName%.LOG"
 
 :: 使用 forfiles 刪除超過 2 天的檔案
