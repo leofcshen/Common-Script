@@ -1,0 +1,14 @@
+﻿Windows Registry Editor Version 5.00
+
+; 右鍵選單_桌面_重啟 Explorer_Add
+; 預設存在: 0
+
+[HKEY_CLASSES_ROOT\Directory\Background\Shell\RestartExplorer]
+@="重啟 Explorer"
+;"Icon"="powershell.exe"
+"Icon"="cmd.exe"
+
+[HKEY_CLASSES_ROOT\Directory\Background\Shell\RestartExplorer\Command]
+;@="powershell.exe -NoProfile -Command \"Stop-Process -Name explorer -Force; Start-Process explorer\""
+@="cmd.exe /c \"D:\\A11084\\Desktop\\重啟-檔案總管.bat\""
+ 

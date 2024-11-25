@@ -1,0 +1,8 @@
+Windows Registry Editor Version 5.00
+
+; 跳躍清單數量_Delete
+; 預設存在: 0
+; 已釘選加最近預設共 13個
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"JumpListItems_Maximum"=-

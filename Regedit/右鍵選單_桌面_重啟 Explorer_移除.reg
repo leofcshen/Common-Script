@@ -1,0 +1,6 @@
+﻿Windows Registry Editor Version 5.00
+
+; 右鍵選單_桌面_重啟 Explorer_Delete
+; 預設存在: 0
+
+[-HKEY_CLASSES_ROOT\Directory\Background\Shell\RestartExplorer]

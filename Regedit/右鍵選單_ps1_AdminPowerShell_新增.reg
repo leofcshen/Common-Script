@@ -1,0 +1,11 @@
+﻿Windows Registry Editor Version 5.00
+
+; .ps1 右鍵選單新增 "以系統管理員身份執行"
+; 預設存在: 0
+
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\Shell\RunAs]
+@="以系統管理員身份執行(&A)"
+"HasLUAShield"=""
+
+[HKEY_CLASSES_ROOT\Microsoft.PowerShellScript.1\Shell\RunAs\Command]
+@="powershell.exe -NoProfile -ExecutionPolicy Bypass -File \"%1\""

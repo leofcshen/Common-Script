@@ -1,0 +1,7 @@
+Windows Registry Editor Version 5.00
+
+; 桌面時間顯示秒數_重登或重啟檔案總管生效_Edit_Disable
+; 預設存在: 0
+
+[HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Advanced]
+"ShowSecondsInSystemClock"=dword:00000000
